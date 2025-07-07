@@ -34,7 +34,7 @@ function App() {
   // Using fetch to get transactions from the backend
 
   useEffect(() => {
-    fetch("http://localhost:5000/transactions")
+    fetch("https://finance-tracker-xvb9.onrender.com/transactions")
       .then((res) => res.json())
       .then((data) => {
         setTransactions(data);
@@ -46,7 +46,7 @@ function App() {
 
   const addTransaction = async (tx) => {
     try {
-      const res = await fetch("http://localhost:5000/transactions", {
+      const res = await fetch("https://finance-tracker-xvb9.onrender.com/transactions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(tx),
@@ -62,7 +62,7 @@ function App() {
 
   const deleteTransaction = async (_id) => {
     try {
-      await fetch(`http://localhost:5000/transactions/${_id}`, {
+      await fetch(`https://finance-tracker-xvb9.onrender.com/transactions/${_id}`, {
         method: "DELETE",
       });
 
@@ -74,7 +74,7 @@ function App() {
 
   const editTransaction = async (_id, tx) => {
     try {
-      await fetch(`http://localhost:5000/transactions/${_id}`, {
+      await fetch(`https://finance-tracker-xvb9.onrender.com/transactions/${_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(tx),
